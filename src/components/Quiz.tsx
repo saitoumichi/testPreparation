@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { questions } from '@/data/questions';
-import { QuizState, QuizResult } from '@/types/quiz';
+import { QuizState } from '@/types/quiz';
+import type { QuizResult } from '@/types/quiz';
 import QuizStart from './QuizStart';
 import QuizProgress from './QuizProgress';
 import QuizCard from './QuizCard';
-import QuizResult from './QuizResult';
+import QuizResultComponent from './QuizResult';
 
 const TIME_LIMIT = 300; // 5分
 const POINTS_PER_QUESTION = 20;
@@ -44,10 +45,9 @@ export default function Quiz() {
   // クイズ終了時の処理
   useEffect(() => {
     if (quizState.isFinished) {
-      const timeTaken = startTime ? Math.floor((Date.now() - startTime) / 1000) : 0;
       setShowResult(true);
     }
-  }, [quizState.isFinished, startTime]);
+  }, [quizState.isFinished]);
 
   const handleStart = () => {
     setIsStarted(true);
@@ -118,7 +118,7 @@ export default function Quiz() {
   if (showResult) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
-        <QuizResult 
+        <QuizResultComponent 
           result={getCurrentResult()}
           onRestart={handleRestart}
         />
