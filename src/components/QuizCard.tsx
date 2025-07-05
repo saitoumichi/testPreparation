@@ -15,9 +15,6 @@ export default function QuizCard({
   onAnswerSelect, 
   showResult 
 }: QuizCardProps) {
-  const isCorrect = selectedAnswer === question.correctAnswer;
-  const isSelected = selectedAnswer !== null;
-
   const getOptionStyle = (index: number) => {
     if (!showResult) {
       return selectedAnswer === index
