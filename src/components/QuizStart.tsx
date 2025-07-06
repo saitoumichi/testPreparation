@@ -14,6 +14,7 @@ export default function QuizStart({ onStart, totalQuestions, timeLimit }: QuizSt
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto text-center">
+<<<<<<< HEAD
       <h1 className="text-3xl font-bold text-gray-800 mb-6">クイズアプリ</h1>
       
       <div className="mb-8 space-y-4">
@@ -21,6 +22,15 @@ export default function QuizStart({ onStart, totalQuestions, timeLimit }: QuizSt
           <h2 className="text-lg font-semibold text-blue-800 mb-2">クイズの説明</h2>
           <p className="text-blue-700 text-sm">
             様々な分野の問題に挑戦してください。正解するとポイントが加算されます。
+=======
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">テスト対策アプリ</h1>
+      
+      <div className="mb-8 space-y-4">
+        <div className="p-4 bg-blue-50 rounded-lg">
+          <h2 className="text-lg font-semibold text-blue-800 mb-2">テスト対策をするためのアプリです。</h2>
+          <p className="text-blue-700 text-sm">
+            正解するとポイントが加算されます。
+>>>>>>> 0385e9f (初期コミット)
           </p>
         </div>
         
@@ -35,7 +45,11 @@ export default function QuizStart({ onStart, totalQuestions, timeLimit }: QuizSt
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600">配点:</span>
+<<<<<<< HEAD
             <span className="font-semibold">1問につき20点</span>
+=======
+            <span className="font-semibold">1問につき10点</span>
+>>>>>>> 0385e9f (初期コミット)
           </div>
         </div>
       </div>
@@ -52,7 +66,11 @@ export default function QuizStart({ onStart, totalQuestions, timeLimit }: QuizSt
           onClick={() => setShowLeaderboard(true)}
           className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-200"
         >
+<<<<<<< HEAD
           🏆 リーダーボードを見る
+=======
+          履歴を見る
+>>>>>>> 0385e9f (初期コミット)
         </button>
       </div>
 

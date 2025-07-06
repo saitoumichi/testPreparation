@@ -50,12 +50,20 @@ export default function Leaderboard({ onClose }: LeaderboardProps) {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-lg shadow-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-hidden">
         <div className="flex justify-between items-center mb-6">
+<<<<<<< HEAD
           <h2 className="text-2xl font-bold text-gray-800">🏆 リーダーボード</h2>
+=======
+          <h2 className="text-2xl font-bold text-gray-800">履歴を見る</h2>
+>>>>>>> 0385e9f (初期コミット)
           <button
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
           >
+<<<<<<< HEAD
             ×
+=======
+            閉じる
+>>>>>>> 0385e9f (初期コミット)
           </button>
         </div>
 
@@ -71,7 +79,11 @@ export default function Leaderboard({ onClose }: LeaderboardProps) {
           </div>
         ) : leaderboard.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
+<<<<<<< HEAD
             まだ記録がありません
+=======
+            まだ記録がないよ
+>>>>>>> 0385e9f (初期コミット)
           </div>
         ) : (
           <div className="overflow-y-auto max-h-[60vh]">

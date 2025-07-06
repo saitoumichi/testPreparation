@@ -4,6 +4,8 @@ export interface Question {
   options: string[];
   correctAnswer: number;
   explanation?: string;
+  category?: string;
+  difficulty?: 'easy' | 'medium' | 'hard';
 }
 
 export interface QuizState {
@@ -41,4 +43,11 @@ export interface LeaderboardEntry {
   time_taken: number;
   created_at: string;
   rank?: number;
+}
+
+// カテゴリ別の問題管理
+export interface QuestionCategory {
+  name: string;
+  description: string;
+  questions: Question[];
 } 
