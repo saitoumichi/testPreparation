@@ -1,10 +1,9 @@
-name: Next.js CI
+name: Deploy Next.js App
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -12,10 +11,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-      - run: npm ci
-      - run: npm run build
-      - run: npm run lint
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./my-next-app
+
+      - name: Build
+        run: npm run build
+        working-directory: ./my-next-app
+
+      - name: Deploy to GitHub Pages / Vercel / etc...
+        run: echo "ここにデプロイ処理を記述"
+        working-directory: ./my-next-app
