@@ -11,10 +11,7 @@ import QuizResultComponent from './QuizResult';
 
 const TIME_LIMIT = 300; // 5分
 const POINTS_PER_QUESTION = 20;
-<<<<<<< HEAD
-=======
 const AUTO_NEXT_DELAY = 3000; // 3秒後に自動で次の問題へ
->>>>>>> 0385e9f (初期コミット)
 
 export default function Quiz() {
   const [quizState, setQuizState] = useState<QuizState>({
@@ -28,11 +25,8 @@ export default function Quiz() {
   const [isStarted, setIsStarted] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [startTime, setStartTime] = useState<number | null>(null);
-<<<<<<< HEAD
-=======
   const [answerTime, setAnswerTime] = useState<number | null>(null);
   const [progressPercent, setProgressPercent] = useState(0);
->>>>>>> 0385e9f (初期コミット)
 
   // タイマーの処理
   useEffect(() => {
@@ -58,8 +52,6 @@ export default function Quiz() {
     }
   }, [quizState.isFinished]);
 
-<<<<<<< HEAD
-=======
   // 答えを選択した後の自動進行
   useEffect(() => {
     const currentAnswer = quizState.answers[quizState.currentQuestionIndex];
@@ -94,7 +86,6 @@ export default function Quiz() {
     return () => clearInterval(interval);
   }, [answerTime]);
 
->>>>>>> 0385e9f (初期コミット)
   const handleStart = () => {
     setIsStarted(true);
     setStartTime(Date.now());
@@ -104,32 +95,19 @@ export default function Quiz() {
     const currentQuestion = questions[quizState.currentQuestionIndex];
     const isCorrect = answerIndex === currentQuestion.correctAnswer;
     
-<<<<<<< HEAD
-=======
     setAnswerTime(Date.now());
     setProgressPercent(100);
     
->>>>>>> 0385e9f (初期コミット)
     setQuizState(prev => {
       const newAnswers = [...prev.answers];
       newAnswers[prev.currentQuestionIndex] = answerIndex;
       
       const newScore = isCorrect ? prev.score + POINTS_PER_QUESTION : prev.score;
-<<<<<<< HEAD
-      const isLastQuestion = prev.currentQuestionIndex === questions.length - 1;
-=======
->>>>>>> 0385e9f (初期コミット)
       
       return {
         ...prev,
         answers: newAnswers,
-<<<<<<< HEAD
-        score: newScore,
-        currentQuestionIndex: isLastQuestion ? prev.currentQuestionIndex : prev.currentQuestionIndex + 1,
-        isFinished: isLastQuestion
-=======
         score: newScore
->>>>>>> 0385e9f (初期コミット)
       };
     });
   };
@@ -145,11 +123,8 @@ export default function Quiz() {
     setIsStarted(false);
     setShowResult(false);
     setStartTime(null);
-<<<<<<< HEAD
-=======
     setAnswerTime(null);
     setProgressPercent(0);
->>>>>>> 0385e9f (初期コミット)
   };
 
   const getCurrentResult = (): QuizResult => {
@@ -192,10 +167,7 @@ export default function Quiz() {
 
   const currentQuestion = questions[quizState.currentQuestionIndex];
   const selectedAnswer = quizState.answers[quizState.currentQuestionIndex] ?? null;
-<<<<<<< HEAD
-=======
   const isAnswered = selectedAnswer !== null;
->>>>>>> 0385e9f (初期コミット)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
@@ -211,28 +183,6 @@ export default function Quiz() {
           question={currentQuestion}
           selectedAnswer={selectedAnswer}
           onAnswerSelect={handleAnswerSelect}
-<<<<<<< HEAD
-          showResult={false}
-        />
-        
-        {selectedAnswer !== null && (
-          <div className="mt-6 text-center">
-            <button
-              onClick={() => {
-                if (quizState.currentQuestionIndex < questions.length - 1) {
-                  setQuizState(prev => ({
-                    ...prev,
-                    currentQuestionIndex: prev.currentQuestionIndex + 1
-                  }));
-                } else {
-                  setQuizState(prev => ({ ...prev, isFinished: true }));
-                }
-              }}
-              className="bg-blue-600 text-white py-3 px-8 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
-            >
-              {quizState.currentQuestionIndex < questions.length - 1 ? '次の問題' : '結果を見る'}
-            </button>
-=======
         />
         
         {isAnswered && (
@@ -249,7 +199,6 @@ export default function Quiz() {
                 style={{ width: `${progressPercent}%` }}
               ></div>
             </div>
->>>>>>> 0385e9f (初期コミット)
           </div>
         )}
       </div>

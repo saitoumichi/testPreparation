@@ -20,17 +20,10 @@ export default function QuizResult({ result, onRestart }: QuizResultProps) {
   const percentage = Math.round((result.correctAnswers / result.totalQuestions) * 100);
   
   const getScoreMessage = () => {
-<<<<<<< HEAD
     if (percentage >= 80) return "素晴らしい！";
     if (percentage >= 60) return "よくできました！";
     if (percentage >= 40) return "もう少し頑張りましょう";
     return "復習が必要です";
-=======
-    if (percentage >= 80) return "いいね！";
-    if (percentage >= 60) return "よくできました！";
-    if (percentage >= 40) return "もうちょっと！";
-    return "勉強しよ";
->>>>>>> 0385e9f (初期コミット)
   };
 
   const getScoreColor = () => {
@@ -65,11 +58,7 @@ export default function QuizResult({ result, onRestart }: QuizResultProps) {
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto text-center">
-<<<<<<< HEAD
       <h2 className="text-2xl font-bold text-gray-800 mb-6">クイズ完了！</h2>
-=======
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">終わり！</h2>
->>>>>>> 0385e9f (初期コミット)
       
       <div className="mb-8">
         <div className={`text-6xl font-bold ${getScoreColor()} mb-2`}>
@@ -111,11 +100,7 @@ export default function QuizResult({ result, onRestart }: QuizResultProps) {
         
         {saved && (
           <div className="p-3 bg-green-50 text-green-700 rounded-lg mb-3">
-<<<<<<< HEAD
             ✓ 記録が保存されました！
-=======
-            ✓ 記録保存できた！
->>>>>>> 0385e9f (初期コミット)
           </div>
         )}
 
@@ -123,22 +108,14 @@ export default function QuizResult({ result, onRestart }: QuizResultProps) {
           onClick={() => setShowLeaderboard(true)}
           className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-200"
         >
-<<<<<<< HEAD
           🏆 リーダーボードを見る
-=======
-          履歴を確認する
->>>>>>> 0385e9f (初期コミット)
         </button>
 
         <button
           onClick={onRestart}
           className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
         >
-<<<<<<< HEAD
           もう一度挑戦
-=======
-          もう一度挑戦！
->>>>>>> 0385e9f (初期コミット)
         </button>
       </div>
 
