@@ -24,7 +24,7 @@ export default function PlayerNameInput({ onSave, onCancel }: PlayerNameInputPro
       <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full">
         <h3 className="text-xl font-bold text-gray-800 mb-4">記録を保存</h3>
         <p className="text-gray-600 mb-6">
-          リーダーボードに表示する名前を入力してください。
+          記録に表示する名前を入力してください。
         </p>
         <input
           type="text"

@@ -227,5 +227,113 @@ export const questions: Question[] = [
     explanation: "主キーは一意でNULL値を許可しない制約があります。",
     category: "データベース",
     difficulty: "medium"
-  }
+  },
+  {
+    id: 26,
+    question: "ドメイン名やIPアドレスの方針を決める団体は？",
+    options: ["JUNET", "JPNIC", "ICANN", "IANA"],
+    correctAnswer: 3,
+    explanation: "ドメイン名やIPアドレスの方針を決める団体はICANNです。",
+    category: "ICANN",
+    difficulty: "medium"
+  },
+  {
+    id: 27,
+    question: "LANケーブルを使わなくても無線LANアダプタや「〜」を使ってインターネットに接続できます。",
+    options: ["有線LANアダプタ", "無線インターフェース", "インターフェース", "モバイルルータ"],
+    correctAnswer: 4,
+    explanation: "LANケーブルを使わなくても無線LANアダプタやモバイルルータを使ってインターネットに接続できます。",
+    category: "モバイルルータ",
+    difficulty: "medium"
+  },
+  {
+    id: 28,
+    question: "「〜」はパソコンの中のすべての部品を制御する役割を果たします。",
+    options: ["CPU", "RAM", "NIC", "LSI"],
+    correctAnswer: 1,
+    explanation: "CPUはパソコンの中のすべての部品を制御する役割を果たします。",
+    category: "CPU",
+    difficulty: "medium"
+  },
+  {
+    id: 29,
+    question: "メモリに記録された命令を読み出して解読することを「〜」と呼びます。",
+    options: ["リンク", "アダプタ", "デコード", "メモリ"],
+    correctAnswer: 3,
+    explanation: "メモリに記録された命令を読み出して解読することをデコードと呼びます。",
+    category: "デコード",
+    difficulty: "medium"
+  },
+  {
+    id: 30,
+    question: "CPUの性能は「〜」と呼ばれる値で示されます。",
+    options: ["クロック", "クロック周期", "クロック信号", "クロック周波数"],
+    correctAnswer: 4,
+    explanation: "CPUの性能はクロック周波数と呼ばれる値で示されます。",
+    category: "クロック周波数",
+    difficulty: "medium"
+  },
+  {
+    id: 31,
+    question: "高速で小容量な記録装置を「〜」です。",
+    options: ["メインメモリ", "仮想メモリ", "データメモリ", "キャッシュメモリ"],
+    correctAnswer: 4,
+    explanation: "高速で小容量な記録装置をキャッシュメモリです。",
+    category: "キャッシュメモリ",
+    difficulty: "medium"
+  },
+  {
+    id: 32,
+    question: "インターネットの住所のように１つ１つ割り当てられるアドレスを「〜」と呼ばれます。",
+    options: ["ハードウェアアドレス", "MACアドレス", "物理アドレス", "ソフトウェアアドレス"],
+    correctAnswer: 2,
+    explanation: "インターネットの住所のように１つ１つ割り当てられるアドレスをMACアドレスと呼ばれます。",
+    category: "MACアドレス",
+    difficulty: "medium"
+  },
+  {
+    id: 33,
+    question: "「TCP/IPの決まり事」は「〜」に書かれています",
+    options: ["IANA", "RFC", "IESC", "REC"],
+    correctAnswer: 2,
+    explanation: "「TCP/IPの決まり事」はRFCに書かれています",
+    category: "RFC",
+    difficulty: "medium"
+  },
+  {
+    id: 34,
+    question: "新しいプロトコルが提案されるとInternet Draftとして「〜」のワーキンググループで検討されます。",
+    options: ["IEEE", "IESG", "IETF", "ICANN"],
+    correctAnswer: 3,
+    explanation: "新しいプロトコルが提案されるとInternet DraftとしてIETFのワーキンググループで検討されます。",
+    category: "IETF",
+    difficulty: "medium"
+  },
+  {
+    id: 35,
+    question: "ITUの日本バージョンとして「〜」が活動しています。",
+    options: ["JISC", "ANSI", "TTC", "ISO"],
+    correctAnswer: 3,
+    explanation: "ITUの日本バージョンとしてTTCが活動しています。",
+    category: "TTC",
+    difficulty: "medium"
+  },
+  {
+    id: 36,
+    question: "メーカーの機器同士でもネットワークの相互接続ができるように「〜」という階層化モデルを判定しました。",
+    options: ["プロトコルスタック", "OSI参照モデル", "プロトコル", "アプリケーション層"],
+    correctAnswer: 2,
+    explanation: "メーカーの機器同士でもネットワークの相互接続ができるようにOSI参照モデルという階層化モデルを判定しました。",
+    category: "OSI参照モデル",
+    difficulty: "medium"
+  },
+  {
+    id: 37,
+    question: "新しいプロトコルが提案されるとInternet Draftとして「〜」のワーキンググループで検討されます。",
+    options: ["IEEE", "IESG", "IETF", "ICANN"],
+    correctAnswer: 3,
+    explanation: "新しいプロトコルが提案されるとInternet DraftとしてIETFのワーキンググループで検討されます。",
+    category: "IETF",
+    difficulty: "medium"
+  },
 ]; 

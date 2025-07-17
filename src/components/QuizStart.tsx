@@ -28,7 +28,7 @@ export default function QuizStart({ onStart, totalQuestions, timeLimit }: QuizSt
         onClick={() => setShowLeaderboard(true)}
         className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-200"
       >
-        🏆 リーダーボードを見る
+        記録を見る
       </button>
       {showLeaderboard && (
         <Leaderboard onClose={() => setShowLeaderboard(false)} />
