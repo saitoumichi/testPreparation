@@ -329,11 +329,65 @@ export const questions: Question[] = [
   },
   {
     id: 37,
-    question: "新しいプロトコルが提案されるとInternet Draftとして「〜」のワーキンググループで検討されます。",
-    options: ["IEEE", "IESG", "IETF", "ICANN"],
+    question: "ビットの転送方法やコネクタの形状を規定している層は？",
+    options: ["ネットワーク層", "物理層", "データリンク層", "セッション層"],
+    correctAnswer: 2,
+    explanation: "ビットの転送方法やコネクタの形状を規定している層は物理層です。",
+    category: "物理層",
+    difficulty: "medium"
+  },
+  {
+    id: 38,
+    question: "直接接続された機器で通信の識別と転送をしている層は？",
+    options: ["ネットワーク層", "物理層", "データリンク層", "セッション層"],
     correctAnswer: 3,
-    explanation: "新しいプロトコルが提案されるとInternet DraftとしてIETFのワーキンググループで検討されます。",
-    category: "IETF",
+    explanation: "直接接続された機器で通信の識別と転送をしている層はデータリンク層です。",
+    category: "データリンク層",
+    difficulty: "medium"
+  },
+  {
+    id: 39,
+    question: "ルーティングとパケットの断片化をしている層は？",
+    options: ["ネットワーク層", "プレゼンテーション層", "トランスポート層", "セッション層"],
+    correctAnswer: 1,
+    explanation: "ルーティングとパケットの断片化をしている層はネットワーク層です。",
+    category: "ネットワーク層",
+    difficulty: "medium"
+  },
+  {
+    id: 40,
+    question: "両端ノード間のデータ転送の管理、転送の信頼性を確保している層は？",
+    options: ["ネットワーク層", "プレゼンテーション層", "トランスポート層", "セッション層"],
+    correctAnswer: 3,
+    explanation: "両端ノード間のデータ転送の管理、転送の信頼性を確保している層はトランスポート層です。",
+    category: "トランスポート層",
+    difficulty: "medium"
+  },
+  {
+    id: 41,
+    question: "両端ノード間の会話を構成し、同期とデータ交換を管理している層は？",
+    options: ["ネットワーク層", "プレゼンテーション層", "トランスポート層", "セッション層"],
+    correctAnswer: 4,
+    explanation: "両端ノード間の会話を構成し、同期とデータ交換を管理している層はセッション層です。",
+    category: "セッション層",
+    difficulty: "medium"
+  },
+  {
+    id: 42,
+    question: "データの表現形式を管理している層は？",
+    options: ["ネットワーク層", "プレゼンテーション層", "トランスポート層", "セッション層"],
+    correctAnswer: 2,
+    explanation: "データの表現形式を管理している層はプレゼンテーション層です。",
+    category: "トランスポート層",
+    difficulty: "medium"
+  },
+  {
+    id: 43,
+    question: "人間とコンピュータとの間のインターフェースを構築、人間の五感と対応を図っている層は？",
+    options: ["ネットワーク層", "アプリケーション層", "トランスポート層", "セッション層"],
+    correctAnswer: 3,
+    explanation: "人間とコンピュータとの間のインターフェースを構築、人間の五感と対応を図っている層はアプリケーション層です。",
+    category: "アプリケーション層",
     difficulty: "medium"
   },
 ]; 
