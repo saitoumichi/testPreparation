@@ -1,5 +1,14 @@
 import { db } from '@/lib/firebase';
-import { collection, addDoc, serverTimestamp, getDocs, query, orderBy, limit, QueryDocumentSnapshot, DocumentData } from 'firebase/firestore';
+import { 
+  collection, 
+  addDoc, 
+  serverTimestamp, 
+  getDocs, 
+  query, 
+  orderBy, 
+  limit, 
+  QueryDocumentSnapshot, 
+  DocumentData } from 'firebase/firestore';
 import { QuizRecord, LeaderboardEntry } from '@/types/quiz';
 
 export const quizService = {
