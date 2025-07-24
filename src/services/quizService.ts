@@ -1,39 +1,48 @@
-import { supabase } from '@/lib/supabase';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp, getDocs, query, orderBy, limit, QueryDocumentSnapshot, DocumentData } from 'firebase/firestore';
 import { QuizRecord, LeaderboardEntry } from '@/types/quiz';
-
-// 環境変数のチェック
-const isSupabaseConfigured = () => {
-  return process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-};
 
 export const quizService = {
   // クイズ記録を保存
   async saveQuizRecord(record: Omit<QuizRecord, 'id' | 'created_at'>): Promise<QuizRecord | null> {
-    if (!isSupabaseConfigured()) {
-      throw new Error('Supabaseの環境変数が設定されていません');
+    try {
+      const docRef = await addDoc(collection(db, 'quiz_records'), {
+        ...record,
+        created_at: serverTimestamp(),
+      });
+      return {
+        id: docRef.id,
+        ...record,
+        created_at: new Date().toISOString(), // FirestoreのserverTimestampは取得時に反映されるため仮値
+      };
+    } catch (error) {
+      console.error('Firestore保存エラー:', error);
+      return null;
     }
-    const { data, error } = await supabase
-      .from('quiz_records')
-      .insert([record])
-      .select()
-      .single();
-    if (error) throw error;
-    return data as QuizRecord;
   },
 
   // リーダーボード取得
   async getLeaderboard(): Promise<LeaderboardEntry[]> {
-    if (!isSupabaseConfigured()) {
-      throw new Error('Supabaseの環境変数が設定されていません');
+    try {
+      const q = query(
+        collection(db, 'quiz_records'),
+        orderBy('score', 'desc'),
+        orderBy('percentage', 'desc'),
+        orderBy('time_taken', 'asc'),
+        limit(20)
+      );
+      const querySnapshot = await getDocs(q);
+      const data: LeaderboardEntry[] = [];
+      let rank = 1;
+      querySnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
+        const entry = doc.data() as LeaderboardEntry;
+        data.push({ ...entry, id: doc.id, rank });
+        rank++;
+      });
+      return data;
+    } catch (error) {
+      console.error('Firestore取得エラー:', error);
+      return [];
     }
-    const { data, error } = await supabase
-      .from('quiz_records')
-      .select('*')
-      .order('score', { ascending: false })
-      .order('percentage', { ascending: false })
-      .order('time_taken', { ascending: true })
-      .limit(20);
-    if (error) throw error;
-    return (data as LeaderboardEntry[]).map((entry, i) => ({ ...entry, rank: i + 1 }));
-  }
+  },
 }; 

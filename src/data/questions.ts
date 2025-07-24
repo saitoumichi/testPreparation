@@ -390,4 +390,49 @@ export const questions: Question[] = [
     category: "アプリケーション層",
     difficulty: "medium"
   },
+  {
+    id: 44,
+    question: "ネットワーク機器で一般にハブと呼ばれているのは？",
+    options: ["スイッチングハブ", "リピータハブ", "セグメント", "スイッチ"],
+    correctAnswer: 2,
+    explanation: "ネットワーク機器で一般にハブと呼ばれているのはリピータハブです。。",
+    category: "リピータハブ",
+    difficulty: "medium"
+  },
+  {
+    id: 45,
+    question: "ハブと呼ばれている装置はOSI参照モデルの「〜」層で動作します。",
+    options: ["ネットワーク層", "物理層", "データリンク層", "セッション層"],
+    correctAnswer: 2,
+    explanation: "ハブと呼ばれている装置はOSI参照モデルの物理層で動作します。",
+    category: "物理層",
+    difficulty: "medium"
+  },
+  {
+    id: 46,
+    question: "データリンク層ではデータは「〜」と呼ばれています。",
+    options: ["ネットワーク層", "フレーム", "論理アドレス", "セッション層"],
+    correctAnswer: 2,
+    explanation: "ハブと呼ばれている装置はOSI参照モデルの物理層で動作します。",
+    category: "物理層",
+    difficulty: "medium"
+  },
+  {
+    id: 47,
+    question: "ハブと呼ばれている装置はOSI参照モデルの「〜」層で動作します。",
+    options: ["ネットワーク層", "物理層", "データリンク層", "セッション層"],
+    correctAnswer: 2,
+    explanation: "ハブと呼ばれている装置はOSI参照モデルの物理層で動作します。",
+    category: "物理層",
+    difficulty: "medium"
+  },
+  {
+    id: 48,
+    question: "ハブと呼ばれている装置はOSI参照モデルの「〜」層で動作します。",
+    options: ["ネットワーク層", "物理層", "データリンク層", "セッション層"],
+    correctAnswer: 2,
+    explanation: "ハブと呼ばれている装置はOSI参照モデルの物理層で動作します。",
+    category: "物理層",
+    difficulty: "medium"
+  },
 ]; 

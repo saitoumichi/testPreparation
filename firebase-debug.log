@@ -1,0 +1,59 @@
+[debug] [2025-07-24T15:11:00.187Z] ----------------------------------------------------------------------
+[debug] [2025-07-24T15:11:00.191Z] Command:       /Users/michico/.nodebrew/node/v22.13.1/bin/node /Users/michico/.npm-global/bin/firebase init
+[debug] [2025-07-24T15:11:00.192Z] CLI Version:   14.11.1
+[debug] [2025-07-24T15:11:00.192Z] Platform:      darwin
+[debug] [2025-07-24T15:11:00.192Z] Node Version:  v22.13.1
+[debug] [2025-07-24T15:11:00.192Z] Time:          Fri Jul 25 2025 00:11:00 GMT+0900 (日本標準時)
+[debug] [2025-07-24T15:11:00.192Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-24T15:11:00.195Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-24T15:11:00.195Z] > authorizing via signed-in user (ms20054869tv@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/michico/Documents/ExamQuiz/my-next-app
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2025-07-24T15:12:14.524Z] Checked if tokens are valid: true, expires at: 1753370882507
+[debug] [2025-07-24T15:12:14.526Z] Checked if tokens are valid: true, expires at: 1753370882507
+[debug] [2025-07-24T15:12:14.532Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-07-24T15:12:14.532Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"michico0"}
+[debug] [2025-07-24T15:12:15.280Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-07-24T15:12:15.280Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_UNAVAILABLE","suggestedProjectId":"michico0-7c241"}
+[debug] [2025-07-24T15:13:09.226Z] Checked if tokens are valid: false, expires at: 1753370882507
+[debug] [2025-07-24T15:13:09.226Z] Checked if tokens are valid: false, expires at: 1753370882507
+[debug] [2025-07-24T15:13:09.227Z] > refreshing access token with scopes: []
+[debug] [2025-07-24T15:13:09.232Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-07-24T15:13:09.232Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-24T15:13:09.442Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-07-24T15:13:09.443Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-24T15:13:09.472Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-07-24T15:13:09.472Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"quizapp"}
+[debug] [2025-07-24T15:13:10.078Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-07-24T15:13:10.079Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_UNAVAILABLE","suggestedProjectId":"quizapp-233e8"}
+[debug] [2025-07-24T15:13:28.694Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (/Users/michico/.npm-global/lib/node_modules/firebase-tools/node_modules/@inquirer/core/dist/commonjs/lib/create-prompt.js:101:37)
+    at Interface.emit (node:events:524:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1124:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:263:20)
+    at ReadStream.emit (node:events:536:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:370:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
