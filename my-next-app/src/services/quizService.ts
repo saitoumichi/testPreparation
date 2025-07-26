@@ -1,122 +1,62 @@
-import { supabase } from '@/lib/supabase';
+import { db } from '@/lib/firebase';
+import {
+  collection,
+  addDoc,
+  serverTimestamp,
+  getDocs,
+  query,
+  orderBy,
+  limit,
+  QueryDocumentSnapshot,
+  DocumentData,
+} from 'firebase/firestore';
 import { QuizRecord, LeaderboardEntry } from '@/types/quiz';
 
-// 環境変数のチェック
-const isSupabaseConfigured = () => {
-  return process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-};
-
 export const quizService = {
-  // クイズ記録を保存
-  async saveQuizRecord(record: Omit<QuizRecord, 'id' | 'created_at'>): Promise<QuizRecord | null> {
-    if (!isSupabaseConfigured()) {
-      throw new Error('Supabaseが設定されていません。環境変数を確認してください。');
-    }
-
+  async saveQuizRecord(
+    record: Omit<QuizRecord, 'id' | 'created_at'>
+  ): Promise<QuizRecord | null> {
     try {
-      console.log('Saving record:', record);
-      
-      const { data, error } = await supabase
-        .from('quiz_records')
-        .insert([record])
-        .select()
-        .single();
+      const docRef = await addDoc(collection(db, 'quiz_records'), {
+        ...record,
+        created_at: serverTimestamp(),
+      });
 
-      if (error) {
-        console.error('Supabase error:', JSON.stringify(error, null, 2));
-        throw new Error(`データベースエラー: ${error.message}`);
-      }
-
-      console.log('Record saved successfully:', data);
-      return data;
+      return {
+        id: docRef.id,
+        ...record,
+        created_at: new Date().toISOString(), // serverTimestampはリアルタイム反映不可のため
+      };
     } catch (error) {
-      console.error('Error saving quiz record:', error);
-      throw error;
+      console.error('Firestore 保存エラー:', error);
+      return null;
     }
   },
 
-  // リーダーボードを取得（上位10位）
   async getLeaderboard(): Promise<LeaderboardEntry[]> {
-    if (!isSupabaseConfigured()) {
-      throw new Error('Supabaseが設定されていません。環境変数を確認してください。');
-    }
-
     try {
-      console.log('Fetching leaderboard...');
-      
-      const { data, error } = await supabase
-        .from('quiz_records')
-        .select('id, player_name, score, percentage, time_taken, created_at')
-        .order('score', { ascending: false })
-        .order('time_taken', { ascending: true })
-        .limit(10);
+      const q = query(
+        collection(db, 'quiz_records'),
+        orderBy('score', 'desc'),
+        orderBy('percentage', 'desc'),
+        orderBy('time_taken', 'asc'),
+        limit(20)
+      );
+      const snapshot = await getDocs(q);
 
-      if (error) {
-        console.error('Supabase error:', JSON.stringify(error, null, 2));
-        throw new Error(`データベースエラー: ${error.message}`);
-      }
+      const leaderboard: LeaderboardEntry[] = [];
+      let rank = 1;
 
-      console.log('Leaderboard fetched:', data);
-      return data.map((entry, index) => ({
-        ...entry,
-        rank: index + 1
-      }));
+      snapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
+        const data = doc.data() as LeaderboardEntry;
+        leaderboard.push({ ...data, id: doc.id, rank });
+        rank++;
+      });
+
+      return leaderboard;
     } catch (error) {
-      console.error('Error fetching leaderboard:', error);
-      throw error;
+      console.error('Firestore 取得エラー:', error);
+      return [];
     }
   },
-
-  // プレイヤーの最高記録を取得
-  async getPlayerBestScore(playerName: string): Promise<QuizRecord | null> {
-    if (!isSupabaseConfigured()) {
-      throw new Error('Supabaseが設定されていません。環境変数を確認してください。');
-    }
-
-    try {
-      const { data, error } = await supabase
-        .from('quiz_records')
-        .select('*')
-        .eq('player_name', playerName)
-        .order('score', { ascending: false })
-        .limit(1)
-        .single();
-
-      if (error) {
-        console.error('Supabase error:', JSON.stringify(error, null, 2));
-        throw new Error(`データベースエラー: ${error.message}`);
-      }
-
-      return data;
-    } catch (error) {
-      console.error('Error fetching player best score:', error);
-      throw error;
-    }
-  },
-
-  // プレイヤーの全記録を取得
-  async getPlayerHistory(playerName: string): Promise<QuizRecord[]> {
-    if (!isSupabaseConfigured()) {
-      throw new Error('Supabaseが設定されていません。環境変数を確認してください。');
-    }
-
-    try {
-      const { data, error } = await supabase
-        .from('quiz_records')
-        .select('*')
-        .eq('player_name', playerName)
-        .order('created_at', { ascending: false })
-        .limit(20);
-
-      if (error) {
-        console.error('Supabase error:', JSON.stringify(error, null, 2));
-        throw new Error(`データベースエラー: ${error.message}`);
-      }
-
-      return data || [];
-    } catch (error) {
-      console.error('Error fetching player history:', error);
-      throw error;
-    }
-  }
-}; 
+};

@@ -15,8 +15,8 @@ TypeScript、React、TailwindCSS、Supabaseを使用したインタラクティ�
 
 - **フロントエンド**: Next.js 15, React, TypeScript
 - **スタイリング**: TailwindCSS
-- **バックエンド**: Supabase
-- **データベース**: PostgreSQL (Supabase)
+- **バックエンド**: Firebase
+- **データベース**: PostgreSQL (Firebase)
 
 ## セットアップ手順
 
