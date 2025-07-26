@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./my-next-app
+        working-directory: ./testPreparation/my-next-app
 
       - name: Build
         run: npm run build
